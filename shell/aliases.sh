@@ -17,18 +17,23 @@ alias xemacs='emacs-gtk'
 
 ## Xilinx Tools {{{
 # begin sources 
-XILTOOLS_VERSION='2019.2'
+XILTOOLS_VERSION='2023.1'
 alias envvivado='source $XIL_TOOLS_PATH/Vivado/$XILTOOLS_VERSION/.settings64-Vivado.sh'
 alias envvitis='source $XIL_TOOLS_PATH/Vitis/$XILTOOLS_VERSION/.settings64-Vitis.sh'
+alias envvhls='source $XIL_TOOLS_PATH/Vitis_HLS/$XILTOOLS_VERSION/.settings64-Vitis.sh'
 alias envdocnav='source $XIL_TOOLS_PATH/DocNav/.settings64-DocNav.sh'
 alias envmcomposer='source $XIL_TOOLS_PATH/Model_Composer/$XILTOOLS_VERSION/.settings64-Model_Composer.sh'
-alias envxiltools='source $XIL_TOOLS_PATH/Vivado/$XILTOOLS_VERSION/settings64.sh'
 alias envptlnx='source $XIL_TOOLS_PATH/petalinux/$XILTOOLS_VERSION/settings.sh'
 alias envxise='source $XIL_TOOLS_PATH/XISE/14.7/ISE_DS/settings64.sh'
 
+function envxiltools () {
+        envvivado
+        envvitis
+        envvhls
+}
 # tools run commands
-alias vitis="GTK_THEME=Adwaita vitis"
-#alias vivado_hls="GTK_THEME=Adwaita vivado_hls"
+#alias vitis="GTK_THEME=Adwaita vitis"
+#alias vivado_hls="GTK_THEME=yara vivado_hls"
 ## }}}#
 
 ## Intel Tools {{{
@@ -89,5 +94,4 @@ function xproxy() {
 #
 alias xo="xdg-open"
 alias xls="logo-ls"
-alias ls="xls"
 ## }}}
