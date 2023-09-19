@@ -15,28 +15,28 @@ alias xrcbash=". ~/.bashrc"
 ## Python Env {{{
 function xvenv () {
 
-        if [ $1 = "c" ]; then 
+        if [ $1 = "c" ]; then
                 virtualenv .venv
 
         elif [ $1 = "s" ]; then
                 . .venv/bin/activate
-        
+
         elif [ $1 = "r" ]; then
                 rm -rf .venv
 
-        
+
         elif [ $1 = "cn" ]; then
                 virtualenv $2
 
         elif [ $1 = "sn" ]; then
                 . $2/bin/activate
-        
+
         elif [ $1 = "rn" ]; then
                 rm -rf $2
 
         elif [ $1 = "d" ]; then
                 deactivate
-        fi 
+        fi
 }
 #}}}
 
@@ -47,7 +47,7 @@ alias xemacs='emacs-gtk'
 ## }}}
 
 ## Xilinx Tools {{{
-# begin sources 
+# begin sources
 XILTOOLS_VERSION='2023.1'
 alias envvivado='source $XIL_TOOLS_PATH/Vivado/$XILTOOLS_VERSION/.settings64-Vivado.sh'
 alias envvitis='source $XIL_TOOLS_PATH/Vitis/$XILTOOLS_VERSION/.settings64-Vitis.sh'
@@ -102,8 +102,8 @@ function vpnconnent(){
         echo $PROXY_PASSWORD | sudo openconnect $PROXY_SERVER --user=$PROXY_USERNAME --passwd-on-stdin --servercert $PROXY_SECRET
 }
 function xproxy() {
-        
-        if [ $1 = "s" ]; then 
+
+        if [ $1 = "s" ]; then
                 echo "nameserver 178.22.122.100" > ~/.shecan.resolv.conf
                 echo "nameserver 185.51.200.2" >> ~/.shecan.resolv.conf
                 sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
@@ -126,3 +126,8 @@ function xproxy() {
 alias xo="xdg-open"
 alias xls="logo-ls"
 ## }}}
+
+### Git Related{{{
+function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
+alias gignore="gi $@ > .gitignore"
+### }}}
