@@ -3,16 +3,16 @@
 ## PATHS
 
 # Location {{{
-export QG_WORKS_PATH=NONE
-export QG_TOOLS_PATH=NONE
-export QG_PROGS_PATH=NONE
-export QG_PROJS_PATH=NONE
-export QG_GITHUB_PATH=NONE
+export QG_WORKS_PATH=$HOME/work
+export QG_TOOLS_PATH=/tools
+export QG_PROGS_PATH=/tools/Programs
+export QG_PROJS_PATH=$HOME/work/p
+export QG_GITHUB_PATH=$Home/work/ghub
 ## }}}
 
 # Tools Path {{{
-export XIL_TOOLS_PATH="$QG_TOOLS_PATH/Xilinx"
-export GOPATH=$QG_TOOLS_PATH/go
+export XIL_TOOLS_PATH="/studio"
+export GOPATH=/tools/go
 ## }}}
 
 ## ProXY Varialbles {{{

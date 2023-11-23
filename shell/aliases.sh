@@ -78,7 +78,6 @@ function envmdlsim () {
 }
 
 ## }}}
-
 ## RISCV Tools {{{
 # PATH
 function rvenv () {
@@ -90,36 +89,10 @@ function rvenv () {
 }
 ## }}}
 
-## Eclipse :( {{{
-# alias eclipse="GTK_THEME=Adwaita eclipse"
-## }}}
 
-## Zotero {{{
-alias zotero=/tools/Programs/Zotero_linux-x86_64/zotero
-## }}}
 ## Open Connnect
 function vpnconnent(){
         echo $PROXY_PASSWORD | sudo openconnect $PROXY_SERVER --user=$PROXY_USERNAME --passwd-on-stdin --servercert $PROXY_SECRET
-}
-function xproxy() {
-
-        if [ $1 = "s" ]; then
-                echo "nameserver 178.22.122.100" > ~/.shecan.resolv.conf
-                echo "nameserver 185.51.200.2" >> ~/.shecan.resolv.conf
-                sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
-                echo "Proxy Shecan DNS Applied"
-        elif [ $1 = "g" ]; then
-                echo "nameserver 8.8.8.8" > ~/.shecan.resolv.conf
-                echo "nameserver 8.8.4.4" >> ~/.shecan.resolv.conf
-                sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
-                echo "Proxy Google DNS Applied"
-        elif [ $1 = "o" ]; then
-                echo "nameserver 208.67.220.220" > ~/.shecan.resolv.conf
-                echo "nameserver 208.67.222.222" >> ~/.shecan.resolv.conf
-                sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
-                echo "Proxy OpenDNS Applied"
-        fi
-
 }
 ## Commands Short Name Aliases {{{
 #
