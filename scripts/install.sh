@@ -1,30 +1,7 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
-function do_ghdl_install() {
-    # download-buidl-and-install-ghdl.sh
-    sudo apt update
-    sudo apt install -y git make gnat zlib1g-dev
-    git clone https://github.com/ghdl/ghdl
-    cd ghdl
-    ./configure --prefix=/usr/local
-    make
-    sudo make install
-    echo "$0: All done!"
-# See the quick start guide to learn basic usage
-# https://ghdl.readthedocs.io/en/latest/using/QuickStartGuide.html
-}
+export DOT_FILES_ROOT=${HOME}/.config/dotfiles/
 
-## Install Neovim (AppImage Download)
-function do_nvim_install() {
-    wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document nvim
-    chmod +x nvim
-    sudo chown root:root nvim
-    sudo mv nvim /usr/bin
-    mkdir -p ~/.config/nvim
-    ## Install VimPlug plugin Manager
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-function do_nodejs_install() {
 # Find OS Disro {{{
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
@@ -55,31 +32,50 @@ else
     OS=$(uname -s)
     VER=$(uname -r)
 fi
-# }}}
 
-# Install NodeJS 12.X {{{
+function do_install_packages() {
+    sudo apt install -y make
+    sudo apt install -y cmake
+    sudo apt install -y curl
+    sudo apt install -y wget
+    sudo apt install -y ssh
+    sudo apt install -y git
+    sudo apt install -y gcc
+    sudo apt install -y g++
+    sudo apt install -y build-essential
+    sudo apt install -y tree
+    sudo apt install -y f-essential
 
-if [[ "$OS" == "Ubuntu" ]]; then
-        sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-        echo "Required Packages Installation Complete"
+}
+function do_install_edatools() {
+    sudo apt install -y ghdl
+    sudo apt install -y iverilog
+    sudo apt install -y verilator
+    sudo apt install -y gtkwave
+}
 
-        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-        
-        sudo apt -y install nodejs
+## Install Neovim (AppImage Download)
+function do_install_vim() {
 
-elif [[" $OS" == "Debian" ]]; then
-        
-       sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-        echo "Required Packages Installation Complete"
-        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    sudo apt install -y neovim
+    sudp apt install -y vim
 
-        sudo apt -y install nodejs
+    mkdir -p ~/.config/nvim
+    ## Install VimPlug plugin Manager
+    curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    [ -f ~/.vimrc ] && { mv ~/.vimrc ~/.vimrc.pre-dotfiles ; }
+    [ -f ~/.config/nvim/init.vim ] && { mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.predots ; }
+    ln -s ${DOT_FILES_ROOT}/nvim/vimrc ~/.vimrc
+    ln -s ${DOT_FILES_ROOT}/nvim/vimrc ~/.config/nvim/init.vim
 
-elif [[ "$OS" == "Fedora" ]]; then
-        sudo dnf install -y  gcc-c++ make
-        curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
-        sudo dnf install -y nodejs
-fi
-# }}}
+}
+
+function do_install_tmux() {
+    
+    sudo apt install -y tmux
+    [ -f ~/.tmux.conf ] && { mv ~/.tmux.conf ~/.tmux.conf.predotfiles ; }
+    ln -s ${DOT_FILES_ROOT}/tmux/tmux.conf ~/.tmux.conf 
+
 }
 
