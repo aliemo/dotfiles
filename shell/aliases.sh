@@ -48,18 +48,29 @@ alias xemacs='emacs-gtk'
 
 ## Xilinx Tools {{{
 # begin sources
-XILTOOLS_VERSION='2023.1'
-alias envvivado='source $XIL_TOOLS_PATH/Vivado/$XILTOOLS_VERSION/.settings64-Vivado.sh'
-alias envvitis='source $XIL_TOOLS_PATH/Vitis/$XILTOOLS_VERSION/.settings64-Vitis.sh'
-alias envvhls='source $XIL_TOOLS_PATH/Vitis_HLS/$XILTOOLS_VERSION/.settings64-Vitis_HLS.sh'
-alias envdocnav='source $XIL_TOOLS_PATH/DocNav/.settings64-DocNav.sh'
-alias envmcomposer='source $XIL_TOOLS_PATH/Model_Composer/$XILTOOLS_VERSION/.settings64-Model_Composer.sh'
-alias envptlnx='source $XIL_TOOLS_PATH/petalinux/$XILTOOLS_VERSION/settings.sh'
+XILTOOLS_VERSION='2019.2'
+XLNX_TOOLS_V='2023.2'
+
+alias envvivadox='source $XIL_TOOLS_PATH/Vivado/$XILTOOLS_VERSION/.settings64-Vivado.sh'
+alias envvitisx='source $XIL_TOOLS_PATH/Vitis/$XILTOOLS_VERSION/.settings64-Vitis.sh'
+alias envvhlsx='source $XIL_TOOLS_PATH/Vitis_HLS/$XILTOOLS_VERSION/.settings64-Vitis_HLS.sh'
+alias envvivhlsx='source $XIL_TOOLS_PATH/Vivado_HLS/$XILTOOLS_VERSION/.settings64-Vitis_HLS.sh'
+alias envdocnavx='source $XIL_TOOLS_PATH/DocNav/.settings64-DocNav.sh'
+alias envmcomposerx='source $XIL_TOOLS_PATH/Model_Composer/$XILTOOLS_VERSION/.settings64-Model_Composer.sh'
+alias envptlnxx='source $XIL_TOOLS_PATH/petalinux/$XILTOOLS_VERSION/settings.sh'
 alias envxise='source $XIL_TOOLS_PATH/XISE/14.7/ISE_DS/settings64.sh'
+
+alias envvivado='source $XLNX_TOOLS_PATH/Vivado/$XLNX_TOOLS_V/.settings64-Vivado.sh'
+alias envvitis='source $XLNX_TOOLS_PATH/Vitis/$XLNX_TOOLS_V/.settings64-Vitis.sh'
+alias envvhls='source $XLNX_TOOLS_PATH/Vitis_HLS/$XLNX_TOOLS_V/.settings64-Vitis_HLS.sh'
+alias envvivhls='source $XLNX_TOOLS_PATH/Vivado_HLS/$XLNX_TOOLS_V/.settings64-Vitis_HLS.sh'
+alias envdocnav='source $XLNX_TOOLS_PATH/DocNav/.settings64-DocNav.sh'
+alias envmcomposer='source $XLNX_TOOLS_PATH/Model_Composer/$XLNX_TOOLS_V/.settings64-Model_Composer.sh'
+alias envptlnx='source $XLNX_TOOLS_PATH/petalinux/$XLNX_TOOLS_V/settings.sh'
 
 function envxiltools () {
         envvivado
-        envvitis
+        envvivhls
         envvhls
 }
 # tools run commands
