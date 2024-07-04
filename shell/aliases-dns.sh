@@ -1,6 +1,6 @@
 function xproxy() {
-        
-        if [ $1 = "help" ]; then 
+
+        if [ $1 = "help" ]; then
                 echo "Usage: xproxy [option]"
                 echo "Options:"
                 echo "s     Shecan DNS"
@@ -13,8 +13,16 @@ function xproxy() {
                 echo "alt   Alternate DNS"
                 echo "local Local DNS"
                 echo "help  Show this help"
-
-        elif [ $1 = "s" ]; then 
+        elif [ $1 = "d" ]; then
+                echo "nameserver 127.0.0.53" > ~/.shecan.resolv.conf
+                echo "options edns0 trust-ad" >> ~/.shecan.resolv.conf
+                echo "search ." >> ~/.shecan.resolv.conf
+                sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
+        elif [ $1 = "403"]; then
+                echo "nameserver 10.202.10.102" > ~/.shecan.resolv.conf
+                echo "nameserver 10.202.10.202" >> ~/.shecan.resolv.conf
+                sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
+        elif [ $1 = "s" ]; then
                 echo "nameserver 178.22.122.100" > ~/.shecan.resolv.conf
                 echo "nameserver 185.51.200.2" >> ~/.shecan.resolv.conf
                 sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
@@ -40,7 +48,7 @@ function xproxy() {
                 sudo mv ~/.local.resolv.conf /etc/resolv.conf
                 echo "Proxy Cloudflare DNS Applied"
         elif [ $1 = "com" ]; then
-                echo "nameserver 8.26.56.26" > ~/.local.resolv.conf 
+                echo "nameserver 8.26.56.26" > ~/.local.resolv.conf
                 echo "nameserver 8.20.247.20" >> ~/.local.resolv.conf
                 sudo mv ~/.local.resolv.conf /etc/resolv.conf
                 echo "Proxy Comodo DNS Applied"
@@ -96,7 +104,7 @@ function xproxy() {
                 echo "Proxy Level3 DNS Applied"
         elif [ $1 = "oracle" ]; then
                 echo "nameserver 216.146.35.35" > ~/.local.resolv.conf
-                echo "nameserver 216.146.36.36" 
+                echo "nameserver 216.146.36.36"
                 sudo mv ~/.local.resolv.conf /etc/resolv.conf
                 echo "Proxy Oracle DNS Applied"
         elif [ $1 = "ucns" ]; then
@@ -114,7 +122,7 @@ function xproxy() {
                 echo "nameserver 209.88.198.133" >> ~/.local.resolv.conf
                 sudo mv ~/.local.resolv.conf /etc/resolv.conf
                 echo "Proxy GreenTeamDNS Applied"
-        elif [ $1 = "safe" ]; then              
+        elif [ $1 = "safe" ]; then
                 echo "nameserver 195.46.39.39" > ~/.local.resolv.conf
                 echo "nameserver 195.46.39.40" >> ~/.local.resolv.conf
                 sudo mv ~/.local.resolv.conf /etc/resolv.conf

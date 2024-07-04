@@ -62,7 +62,7 @@ alias envxise='source $XIL_TOOLS_PATH/XISE/14.7/ISE_DS/settings64.sh'
 
 alias envvivado='source $XLNX_TOOLS_PATH/Vivado/$XLNX_TOOLS_V/.settings64-Vivado.sh'
 alias envvitis='source $XLNX_TOOLS_PATH/Vitis/$XLNX_TOOLS_V/.settings64-Vitis.sh'
-alias envvhls='source $XLNX_TOOLS_PATH/Vitis_HLS/$XLNX_TOOLS_V/.settings64-Vitis_HLS.sh'
+alias envvhls='source $XLNX_TOOLS_PATH/Vitis_HLS/$XLNX_TOOLS_V/settings64.sh'
 alias envvivhls='source $XLNX_TOOLS_PATH/Vivado_HLS/$XLNX_TOOLS_V/.settings64-Vitis_HLS.sh'
 alias envdocnav='source $XLNX_TOOLS_PATH/DocNav/.settings64-DocNav.sh'
 alias envmcomposer='source $XLNX_TOOLS_PATH/Model_Composer/$XLNX_TOOLS_V/.settings64-Model_Composer.sh'
@@ -70,7 +70,7 @@ alias envptlnx='source $XLNX_TOOLS_PATH/petalinux/$XLNX_TOOLS_V/settings.sh'
 
 function envxiltools () {
         envvivado
-        envvivhls
+       # envvivhls
         envvhls
 }
 # tools run commands

@@ -11,7 +11,7 @@ export QG_GITHUB_PATH=$Home/work/ghub
 ## }}}
 
 # Tools Path {{{
-export XIL_TOOLS_PATH="/tools/Xilinx/"
+export XIL_TOOLS_PATH="/studio/Xilinx/"
 export XLNX_TOOLS_PATH="/studio/Xilinx/"
 export GOPATH=/tools/go
 ## }}}
