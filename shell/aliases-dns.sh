@@ -27,6 +27,11 @@ function xproxy() {
                 echo "nameserver 185.51.200.2" >> ~/.shecan.resolv.conf
                 sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
                 echo "Proxy Shecan DNS Applied"
+         elif [ $1 = "e" ]; then
+                echo "nameserver 78.157.42.100" > ~/.resolv.conf
+                echo "nameserver 78.157.42.101" >> ~/.resolv.conf
+                sudo mv ~/.resolv.conf /etc/resolv.conf
+                echo "Proxy Electro TM DNS Applied"       
         elif [ $1 = "g" ]; then
                 echo "nameserver 8.8.8.8" > ~/.shecan.resolv.conf
                 echo "nameserver 8.8.4.4" >> ~/.shecan.resolv.conf
