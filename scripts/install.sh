@@ -72,10 +72,18 @@ function do_install_vim() {
 }
 
 function do_install_tmux() {
-    
+
     sudo apt install -y tmux
     [ -f ~/.tmux.conf ] && { mv ~/.tmux.conf ~/.tmux.conf.predotfiles ; }
-    ln -s ${DOT_FILES_ROOT}/tmux/tmux.conf ~/.tmux.conf 
+    ln -s ${DOT_FILES_ROOT}/tmux/tmux.conf ~/.tmux.conf
 
 }
 
+function do_install_zsh_plugins() {
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+
+}
