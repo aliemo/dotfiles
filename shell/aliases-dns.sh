@@ -18,10 +18,12 @@ function xproxy() {
                 echo "options edns0 trust-ad" >> ~/.shecan.resolv.conf
                 echo "search ." >> ~/.shecan.resolv.conf
                 sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
-        elif [ $1 = "403"]; then
+                echo "Proxy Default 127.0.0.53 DNS Applied"
+        elif [ $1 = "403" ]; then
                 echo "nameserver 10.202.10.102" > ~/.shecan.resolv.conf
                 echo "nameserver 10.202.10.202" >> ~/.shecan.resolv.conf
                 sudo mv ~/.shecan.resolv.conf /etc/resolv.conf
+                echo "Proxy 403 DNS Applied"
         elif [ $1 = "s" ]; then
                 echo "nameserver 178.22.122.100" > ~/.shecan.resolv.conf
                 echo "nameserver 185.51.200.2" >> ~/.shecan.resolv.conf
@@ -31,7 +33,7 @@ function xproxy() {
                 echo "nameserver 78.157.42.100" > ~/.resolv.conf
                 echo "nameserver 78.157.42.101" >> ~/.resolv.conf
                 sudo mv ~/.resolv.conf /etc/resolv.conf
-                echo "Proxy Electro TM DNS Applied"       
+                echo "Proxy Electro TM DNS Applied"
         elif [ $1 = "g" ]; then
                 echo "nameserver 8.8.8.8" > ~/.shecan.resolv.conf
                 echo "nameserver 8.8.4.4" >> ~/.shecan.resolv.conf
