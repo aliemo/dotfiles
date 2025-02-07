@@ -66,7 +66,7 @@ alias envvhls='source $XLNX_TOOLS_PATH/Vitis_HLS/$XLNX_TOOLS_V/settings64.sh'
 alias envvivhls='source $XLNX_TOOLS_PATH/Vivado_HLS/$XLNX_TOOLS_V/.settings64-Vitis_HLS.sh'
 alias envdocnav='source $XLNX_TOOLS_PATH/DocNav/.settings64-DocNav.sh'
 alias envmcomposer='source $XLNX_TOOLS_PATH/Model_Composer/$XLNX_TOOLS_V/.settings64-Model_Composer.sh'
-alias envptlnx='source $XLNX_TOOLS_PATH/petalinux/$XLNX_TOOLS_V/settings.sh'
+alias envptlnx='source $XLNX_TOOLS_PATH/../petalinux/$XLNX_TOOLS_V/settings.sh'
 
 function envxiltools () {
         envvivado
